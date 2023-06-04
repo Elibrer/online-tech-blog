@@ -1,0 +1,168 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+:root {
+  --dark: rgb(31, 48, 85);
+  --white: rgba(255,255,255,0.7);
+  --whiteMod: rgb(255, 255, 255);
+  --light: rgba(216, 216, 216, 0.7);
+  --darker: rgba(0,0,0,0.7);
+  --green: #2ccf6d;
+  --darkbg: #536489;
+}
+
+body, html {
+  height: 100%;
+}
+body {
+  font-family:"Nunito Sans";
+  font-weight: 100;
+  overflow: hidden;
+}
+input {
+  ::-webkit-input-placeholder {
+     color: var(--dark);
+  }
+  ::-moz-placeholder {
+     color: var(--dark);  
+  }
+  :-ms-input-placeholder {  
+     color: var(--dark);  
+  }
+  &:focus {
+    outline: 0 transparent solid;
+    ::-webkit-input-placeholder {
+     color: var(--white);
+    }
+    ::-moz-placeholder {
+       color: var(--white);  
+    }
+    :-ms-input-placeholder {  
+       color: var(--white);  
+    }
+  }
+}
+
+::placeholder { 
+    color: var(--dark);
+    opacity: 1; 
+   
+}
+input:focus::placeholder, input:hover::placeholder {
+    color: var(--white);
+}
+
+.login-form {
+  background: var(--white);
+    border-radius: 1rem;
+    border: 4px solid var(--dark);
+    box-shadow: 0 0 .3rem var(--dark);
+  min-height: 10rem;
+  margin: auto;
+  margin-top: 5rem;
+  width: 25%;
+  min-width: 300px;
+  max-width: 50%;
+  padding: .5rem;
+}
+
+.login-modal {
+    background: var(--whiteMod);
+    border-radius: 1rem;
+    border: 4px solid var(--dark);
+    box-shadow: 0 0 .3rem var(--dark);
+    min-height: 10rem;
+    margin: auto;
+    margin-top: 18rem;
+    width: 25%;
+    min-width: 300px;
+    max-width: 50%;
+    padding: .5rem;
+}
+
+#signup-close:hover {
+    cursor: pointer;
+}
+
+.login-text {
+  background: hsl(40,30,60);
+  border-bottom: .5rem solid rgba(31, 48, 85, 0.748);
+  border-radius: 90%;
+  color: rgba(31, 48, 85, 0.748);
+  font-size: 1.5rem;
+  margin: 0 auto;
+  max-width: 50%;
+  padding: .5rem;
+  text-align: center;
+  text-shadow: 1px -1px 0 rgba(0,0,0,0.3);
+  .fa-stack-1x {
+    color: white;
+  }
+}
+
+/* .email-login, .login-password {
+  background: transparent;
+  border: 0 solid;
+  border-bottom: 1px solid var(--white);
+  color: var(--dark);
+  display: block;
+  margin: 1rem;
+  padding: .5rem;
+  transition: 250ms background-color ease-in;
+  width: calc(100% - 2rem);
+  &:focus {
+    background-color: var(--light);
+    color: white;
+    transition: 250ms background-color ease-in;
+  }
+} */
+
+.login-signup {
+  color: var(--dark);
+  cursor: pointer;
+  display: block;
+  font-size: 75%;
+  left: 0;
+  opacity: 0.6;
+  padding: .5rem;
+  text-align: center;
+  text-decoration: none;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+/* .modal-signup {
+    color: var(--dark);
+    cursor: pointer;
+    display: block;
+    font-size: 75%;
+    left: 0;
+    opacity: 0.6;
+    padding: .5rem;
+    text-align: center;
+    text-decoration: none;
+    &:hover {
+      opacity: 1;
+    }
+  } */
+
+.login-submit, .email-login, .login-password, .signup-submit, .signup-cancel {
+  border: 1px solid var(--dark);
+  border-radius: 25px;
+  background: transparent;
+  color: var(--dark);
+  display: block;
+  margin: 1rem auto;
+  width: calc(100% - 2rem);
+  padding: .25rem;
+  transition: 250ms background-color ease-in;
+  &:hover, &:focus {
+    background-color: var(--dark);
+    color: var(--white);
+    transition: 250ms background-color ease-in;
+  }
+}
+
+.email-login, .login-password {
+    padding-left: 1rem;
+}
