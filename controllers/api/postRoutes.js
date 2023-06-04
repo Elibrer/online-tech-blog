@@ -69,19 +69,19 @@ router.get('/:id', async (req, res) => {
   });
 
 // Get a single post by ID
-router.get('/:id', async (req, res) => {
-  try {
+// router.get('/:id', async (req, res) => {
+//   try {
     
-    const post = await Post.findByPk(req.params.id, {});
+//     const post = await Post.findByPk(req.params.id, {});
 
-    if (!post) {
-      res.status(404).json({ message: 'Post not found' });
-    }
-    res.status(200).json(post);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     if (!post) {
+//       res.status(404).json({ message: 'Post not found' });
+//     }
+//     res.status(200).json(post);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // Create a new post
 router.post('/', async (req, res) => {
@@ -90,7 +90,7 @@ router.post('/', async (req, res) => {
     const newPost = await Post.create({
       post_name: req.body.post_name,
       post_content: req.body.post_content,
-      post_date: req.body.post_date,
+      user_id: req.session.user_id,
     }, 
     {
       individualHooks: true

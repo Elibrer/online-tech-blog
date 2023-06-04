@@ -9,6 +9,13 @@ html, body {
   height: 100%;
 }
 
+h1, h3, h4, h5, h6, p {
+  margin: 0;
+}
+h2 {
+  margin: 1rem;
+}
+
 body {
   display: flex;
   flex-direction: column;

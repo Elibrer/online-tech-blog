@@ -47,7 +47,6 @@ const signupFormHandler = async (event) => {
     const newPassword = password.value.trim();
 
     if (username && email && password) {
-      console.log(newUsername, newEmail, newPassword)
       const newUser = {
         username: newUsername,
         email: newEmail,

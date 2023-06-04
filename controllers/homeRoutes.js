@@ -30,9 +30,9 @@ router.get('/', async (req, res) => {
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
-
-    console.log(posts[0].comments[0].comment_content)
+    const currentUser = req.session.currentUser
     res.render('home', {
+      currentUser,
       posts,
       logged_in: logged_in
     });
@@ -49,8 +49,14 @@ router.get('/dashboard', auth, async (req, res) => {
         include: [{ model: Post }],
       });
       const user = userData.get({ plain: true });
+      userPosts = user.posts;
+      if (userPosts.length === 0) {
+        userPosts = false;
+      }
       res.render('dashboard', {
+        userPosts,
         user,
+        logged_in: true
         
       });
     } else {

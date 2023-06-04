@@ -32,7 +32,6 @@ router.get('/:id', async (req, res) => {
 
 // Create a new user
 router.post('/', async (req, res) => {
-  console.log(req.body)
   try {
     const newUser = await User.create({
       username: req.body.username,
@@ -116,8 +115,9 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect email or password. Please try again!' });
       return;
     }
-
   req.session.save(() => {
+    req.session.user_id = dbUserData.id;
+    req.session.currentUser = dbUserData;
     req.session.logged_in = true;
     console.log(
       'req.session.cookie',

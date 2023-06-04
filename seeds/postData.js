@@ -8,6 +8,18 @@ const postData = [
     user_id: 2,
   },
   {
+    post_name: "Beep Beep!",
+    post_content: "Sick of seeing Max Verstappen win F1 Grand Prix's. Time for someone new!",
+    post_date: "2023/05/01",
+    user_id: 2,
+  },
+  {
+    post_name: "Wah wah wah !",
+    post_content: "I have no thoughts in my mind.",
+    post_date: "2023/05/05",
+    user_id: 2,
+  },
+  {
     post_name: "Love it dude!!",
     post_content: "Totally, like, the best blog ever!",
     post_date: "2021/05/18",
