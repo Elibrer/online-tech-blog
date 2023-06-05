@@ -1,7 +1,7 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 
 :root {
-  --dark: rgb(31, 48, 85);
+  --dark: #1f3156;
   --white: rgba(255,255,255,0.7);
   --whiteMod: rgb(255, 255, 255);
   --light: rgba(216, 216, 216, 0.7);
