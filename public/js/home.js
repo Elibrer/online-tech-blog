@@ -60,21 +60,28 @@ const getPost = async (currentPostId) => {
   });
 };
 
-handlePostClick = async (currentPostId) => {
+handlePostClick = async (event, currentPostId) => {
   event.preventDefault();
-
   const response = await getPost(currentPostId);
+ 
   if (response.ok) {
     homeModal.style.display = "block";
     currentPost = await response.json();
 
+    let storedText = currentPost.post_content;
+    storedText = storedText.replace(/\n/g, "<br>");
+
+
     postTitle.innerHTML = currentPost.post_name;
-    postContent.innerHTML = currentPost.post_content;
+    postContent.innerHTML = storedText;
     postAuthor.innerHTML = currentPost.user.username;
     postDate.innerHTML = currentPost.post_date;
 
     if (currentPost.comments.length > 0) {
       postCommentHandler(currentPost);
+    } else {
+      const commentList = document.querySelector('.comment-id');
+      commentList.innerHTML = '';
     }
   } else {
     alert('Failed to load post');
@@ -124,6 +131,9 @@ const newCommentHandler = async (event) => {
 }
 
 const postCommentHandler = async (currentPost) => {
+  if (loggedIn) {
+    addCommentText.value = '';
+  }
   const commentList = document.querySelector('.comment-id');
   commentList.innerHTML = '';
   currentPost.comments.forEach((comment) => {
@@ -161,7 +171,7 @@ const postCommentHandler = async (currentPost) => {
 postElements.forEach((postElement) => {
   postElement.addEventListener('click', async function(event) {
     currentPostId = event.currentTarget.getAttribute('data-id');
-    await handlePostClick(currentPostId);
+    await handlePostClick(event, currentPostId);
   });
 });
 
@@ -187,7 +197,7 @@ postModalCloseButtons.forEach(button => {
 
 window.onclick = function(event) {
   if (event.target == homeModal) {
-    clearModal();
+    clearModal(event);
   } 
 
 }

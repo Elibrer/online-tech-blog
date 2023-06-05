@@ -60,7 +60,7 @@ router.get('/dashboard', auth, async (req, res) => {
         
       });
     } else {
-    res.redirect('/login')
+      res.redirect('/login')
     } 
   } catch (err) {
     res.status(500).json(err);

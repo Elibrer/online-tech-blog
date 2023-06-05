@@ -20,7 +20,8 @@
 
     <div class="w-100 post-form container-fluid d-flex flex-column justify-content-center mb-2" id="recent-post-container">
         <header class="w-100 text-center">
-        <h2 class="justify-content-center"><span data-id="{{user.id}}" id="current-user-name">{{user.username}}</span>'s recent posts:</h2>
+        <h2 class="justify-content-center mb-0"><span data-id="{{user.id}}" id="current-user-name">{{user.username}}</span>'s recent posts:</h2>
+        <p class="mb-2" style="font-style: italic;">Press any existing blog to edit/delete...</p>
         </header>
         <ul class="list-group w-100">
         {{#if userPosts}}
@@ -36,10 +37,13 @@
             </div>
         </li>
 
-        <div class="m-2"></div>
+        <div id="post-list" class="m-2"></div>
         {{/each}}
         {{/if}}
         </ul> 
+        <ul  class="list-group post-id ">
+
+        </ul>
     </div>
     <div id="home-modal" class="modal">
       <div class="dash-modal modal-content">
@@ -47,21 +51,22 @@
         <ul class="list-group">
           <li class="list-group-modal list-group-item rounded current-post">        
             <div class="d-flex justify-content-between blog-post p-2">
-              <h3  id="post-title"></h3>
+              <input style="font-size: 2rem;" type="text" id="post-title">
               <div class="user-container">
                 <h5 id="post-author"></h5>
                 <p style="color: var(--white);" class="mx-3">|</p>
                 <p  id="post-date" ></p>
               </div>               
             </div>
-            <div> 
-              <p id="post-content" class="border-top p-2 m-0"></p>
-            </div>
-            
+            <div id="post-content" contenteditable="true" class="w-100 border-top p-2 m-0 h-100"></div>
           </li>
           <li class="rounded">
             <div class="d-flex flex-row align-items-center justify-content-between p-2">
               <h6 class="m-0 font-weight-bold">Comments</h6>
+              <div class="d-flex flex-row w-50 justify-content-end">
+                <input id="edit-post" type="submit" name="Edit Post" value="Edit Post" class="w-25 comment-submit justify-content-end m-0 " />
+                <input id="delete-post" type="submit" name="Delete Post" value="Delete Post" class="w-25 comment-submit justify-content-end m-0 " />
+              </div>
             </div>
             <ul  class="list-group comment-id ">
 

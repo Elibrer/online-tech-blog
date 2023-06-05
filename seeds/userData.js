@@ -17,14 +17,14 @@ const userData = [
     password: "jimmyj123"
   },
   {
-    username: "1337h@cker",
-    email: "haxorboy@gmail.com",
-    password: "securepass123"
+    username: "Dave909",
+    email: "david.king@gmail.com",
+    password: "daveking123"
   },
   {
-    username: "lizardzuck",
-    email: "zuckerb@gmail.com",
-    password: "zuccman123"
+    username: "kevmate",
+    email: "kjones@gmail.com",
+    password: "kevinj123"
   },
 ];
 

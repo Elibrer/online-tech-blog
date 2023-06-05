@@ -60,6 +60,9 @@
           <li class="rounded">
             <div class="d-flex flex-row align-items-center justify-content-between p-2">
               <h6 class="m-0 font-weight-bold">Comments</h6>
+              {{#unless logged_in}}
+              <p style="font-style: italic; font-size: .9rem;">Log in to leave a comment</p>
+              {{/unless}}
             </div>
             <ul  class="list-group comment-id ">
 
