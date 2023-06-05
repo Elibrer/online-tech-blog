@@ -1,4 +1,3 @@
-
 let homeModal;
 let postModalCloseButtons;
 let posts;
@@ -146,45 +145,48 @@ const newPostHandler = async (event) => {
 };
 
 const editPostHandler = async (event) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    if (postTitle.value === "") {
-        alert("Please enter a post title.");
-        clearModal();
-        handlePostClick(event, currentPostId);
-        return;;
-    }
-    if (postContent.innerHTML === "") {
-        alert("Please enter post content.");
-        clearModal();
-        handlePostClick(event, currentPostId);
-        return;
-    }
+  if (postTitle.value === "") {
+    alert("Please enter a post title.");
+    clearModal();
+    handlePostClick(event, currentPostId);
+    return;
+  }
+  if (postContent.innerHTML === "") {
+    alert("Please enter post content.");
+    clearModal();
+    handlePostClick(event, currentPostId);
+    return;
+  }
 
-    if (postContent.innerHTML === currentPost.post_content && postTitle.value === currentPost.post_name) {
-        alert("Please make changes to post before submitting.");
-        clearModal();
-        handlePostClick(event, currentPostId);
-        return;
-    }
+  if (
+    postContent.innerHTML === currentPost.post_content &&
+    postTitle.value === currentPost.post_name
+  ) {
+    alert("Please make changes to post before submitting.");
+    clearModal();
+    handlePostClick(event, currentPostId);
+    return;
+  }
 
-    const updatePostData = {
-        post_name: postTitle.value,
-        post_content: postContent.innerHTML,
-    };
-    const response = await fetch(`/api/posts/${currentPostId}`, {
-        method: "PUT",
-        body: JSON.stringify(updatePostData),
-        headers: {
-            "Content-Type": "application/json",
-        },
-    });
-    if (response.ok) {
-        clearModal();
-        location.reload();
-    } else {
-        alert("Failed to update post");
-    }
+  const updatePostData = {
+    post_name: postTitle.value,
+    post_content: postContent.innerHTML,
+  };
+  const response = await fetch(`/api/posts/${currentPostId}`, {
+    method: "PUT",
+    body: JSON.stringify(updatePostData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (response.ok) {
+    clearModal();
+    location.reload();
+  } else {
+    alert("Failed to update post");
+  }
 };
 
 const postCommentHandler = async (currentPost) => {
@@ -250,4 +252,3 @@ window.onclick = function (event) {
 };
 
 editPost.addEventListener("click", editPostHandler);
-

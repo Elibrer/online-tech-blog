@@ -1,11 +1,11 @@
-const router = require('express').Router();
-const { User, Post } = require('../../models');
+const router = require("express").Router();
+const { User, Post } = require("../../models");
 
 // Get all users
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const users = await User.findAll({
-      attributes: { exclude: ['password'] },
+      attributes: { exclude: ["password"] },
     });
     res.status(200).json(users);
   } catch (err) {
@@ -14,38 +14,41 @@ router.get('/', async (req, res) => {
 });
 
 // Get a single user by ID
-router.get('/:id', async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
-    if ( req.session.logged_in === true) {
-    const user = await User.findByPk(req.params.id, {
-      attributes: { exclude: ['password'] },
+    if (req.session.logged_in === true) {
+      const user = await User.findByPk(req.params.id, {
+        attributes: { exclude: ["password"] },
 
-      include: [{ model: Post, attributes: ['post_name'] }],
-    });
+        include: [{ model: Post, attributes: ["post_name"] }],
+      });
 
-    if (!user) {
-      res.status(404).json({ message: 'User not found' });
+      if (!user) {
+        res.status(404).json({ message: "User not found" });
+      }
+      res.status(200).json(user);
     }
-    res.status(200).json(user);
-  }} catch (err) {
+  } catch (err) {
     res.status(500).json(err);
   }
 });
 
 // Create a new user
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   console.log(req.body);
 
   try {
-      const newUser = await User.create({
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password,
-    }, 
-    {
-      individualHooks: true
-    });
-    console.log("Success")
+    const newUser = await User.create(
+      {
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+      },
+      {
+        individualHooks: true,
+      }
+    );
+    console.log("Success");
     res.status(201).json(newUser);
   } catch (err) {
     res.status(500).json(err);
@@ -53,33 +56,33 @@ router.post('/', async (req, res) => {
 });
 
 // Update an existing user by ID
-router.put('/:id', async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
-    const updatedUser = await User.update({
-      id: req.body.id,
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password,
-    },
+    const updatedUser = await User.update(
+      {
+        id: req.body.id,
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+      },
       {
         where: {
           id: req.params.id,
         },
-        individualHooks: true
+        individualHooks: true,
       }
-      );
+    );
     if (!updatedUser[0]) {
-      res.status(404).json({ message: 'User not found' });
+      res.status(404).json({ message: "User not found" });
     }
-    res.status(200).json({ message: 'User updated successfully' });
-
+    res.status(200).json({ message: "User updated successfully" });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 // Delete a user by ID
-router.delete('/:id', async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const deletedUser = await User.destroy({
       where: {
@@ -87,28 +90,27 @@ router.delete('/:id', async (req, res) => {
       },
     });
     if (!deletedUser) {
-      res.status(404).json({ message: 'User not found' });
+      res.status(404).json({ message: "User not found" });
     }
-    res.status(200).json({ message: 'User deleted successfully' });
-
+    res.status(200).json({ message: "User deleted successfully" });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 // Login
-router.post('/login', async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     const dbUserData = await User.findOne({
       where: {
-        email: req.body.email
+        email: req.body.email,
       },
     });
 
     if (!dbUserData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
+        .json({ message: "Incorrect email or password. Please try again!" });
       return;
     }
 
@@ -117,20 +119,17 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
+        .json({ message: "Incorrect email or password. Please try again!" });
       return;
     }
-  req.session.save(() => {
-    req.session.user_id = dbUserData.id;
-    req.session.currentUser = dbUserData;
-    req.session.logged_in = true;
-    console.log(
-      'req.session.cookie',
-      req.session.cookie
-    );
-    res
-      .status(200)
-      .json({ user: dbUserData, message: 'You are now logged in!' });
+    req.session.save(() => {
+      req.session.user_id = dbUserData.id;
+      req.session.currentUser = dbUserData;
+      req.session.logged_in = true;
+      console.log("req.session.cookie", req.session.cookie);
+      res
+        .status(200)
+        .json({ user: dbUserData, message: "You are now logged in!" });
     });
   } catch (err) {
     console.log(err);
@@ -138,7 +137,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post('/logout', (req, res) => {
+router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();

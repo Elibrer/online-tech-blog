@@ -2,50 +2,56 @@
 
 :root {
   --dark: rgb(31, 48, 85);
-  --white: rgba(255,255,255,0.7);
+  --white: rgba(255, 255, 255, 0.7);
   --whiteMod: rgb(255, 255, 255);
   --light: rgba(216, 216, 216, 0.7);
-  --darker: rgba(0,0,0,0.7);
+  --darker: rgba(0, 0, 0, 0.7);
   --green: #2ccf6d;
   --darkbg: #536489;
   --lightblue: rgb(169, 169, 169);
-
 }
 
-body, html {
+body,
+html {
   height: 100%;
 }
 body {
-  font-family:"Nunito Sans";
+  font-family: "Nunito Sans";
   font-weight: 100;
   overflow: auto;
 }
 input {
   ::-webkit-input-placeholder {
-     color: var(--dark);
+    color: var(--dark);
   }
   ::-moz-placeholder {
-     color: var(--dark);  
+    color: var(--dark);
   }
-  :-ms-input-placeholder {  
-     color: var(--dark);  
+  :-ms-input-placeholder {
+    color: var(--dark);
   }
   &:focus {
     outline: 0 transparent solid;
     ::-webkit-input-placeholder {
-     color: var(--white);
+      color: var(--white);
     }
     ::-moz-placeholder {
-       color: var(--white);  
+      color: var(--white);
     }
-    :-ms-input-placeholder {  
-       color: var(--white);  
+    :-ms-input-placeholder {
+      color: var(--white);
     }
   }
 }
 
-h1, h2, h3, h4, h5, h6, p {
-color: var(--dark);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: var(--dark);
 }
 
 h4 {
@@ -57,43 +63,42 @@ h4 {
   cursor: pointer;
 }
 
-::placeholder { 
-    color: var(--dark);
-    opacity: 1; 
-   
+::placeholder {
+  color: var(--dark);
+  opacity: 1;
 }
-input:focus::placeholder, input:hover::placeholder {
-    color: var(--white);
+input:focus::placeholder,
+input:hover::placeholder {
+  color: var(--white);
 }
 
 .post-form {
   background: var(--white);
-    border-radius: 1rem;
-    border: 4px solid var(--dark);
-    box-shadow: 0 0 .3rem var(--dark);
+  border-radius: 1rem;
+  border: 4px solid var(--dark);
+  box-shadow: 0 0 0.3rem var(--dark);
   min-height: 10rem;
   margin: auto;
   margin-top: 1rem;
   width: 75%;
   min-width: 300px;
   max-width: 50%;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 .post-modal {
-    background: var(--whiteMod);
-    border-radius: 1rem;
-    border: 4px solid var(--dark);
-    box-shadow: 0 0 .3rem var(--dark);
-    min-height: 10rem;
-    margin: auto;
-    margin-top: 14rem;
-    width: 75%;
-    min-width: 300px;
-    max-width: 75%;
-    padding: .5rem;
+  background: var(--whiteMod);
+  border-radius: 1rem;
+  border: 4px solid var(--dark);
+  box-shadow: 0 0 0.3rem var(--dark);
+  min-height: 10rem;
+  margin: auto;
+  margin-top: 14rem;
+  width: 75%;
+  min-width: 300px;
+  max-width: 75%;
+  padding: 0.5rem;
 }
-
 
 .comment-submit {
   border: 1px solid var(--dark);
@@ -103,9 +108,10 @@ input:focus::placeholder, input:hover::placeholder {
   display: block;
   margin: 1rem auto;
   width: calc(75% - 2rem);
-  padding: .25rem;
+  padding: 0.25rem;
   transition: 250ms background-color ease-in;
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background-color: var(--dark);
     color: var(--white);
     transition: 250ms background-color ease-in;
@@ -133,9 +139,9 @@ input:focus::placeholder, input:hover::placeholder {
   border: 4px solid var(--dark);
 }
 
-
-.post-list-item:hover, .post-modal-close:hover {
-  cursor: pointer;  
+.post-list-item:hover,
+.post-modal-close:hover {
+  cursor: pointer;
 }
 
 .user-container {
@@ -152,9 +158,10 @@ input:focus::placeholder, input:hover::placeholder {
   display: block;
   margin: 1rem auto;
   width: calc(100% - 2rem);
-  padding: .25rem;
+  padding: 0.25rem;
   transition: 250ms background-color ease-in;
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background-color: var(--dark);
     color: var(--white);
     transition: 250ms background-color ease-in;
@@ -215,5 +222,4 @@ input:focus::placeholder, input:hover::placeholder {
   .post-name {
     text-align: center;
   }
-  
 }

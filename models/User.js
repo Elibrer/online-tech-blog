@@ -1,6 +1,6 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
-const bcrypt = require('bcrypt');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
+const bcrypt = require("bcrypt");
 
 class User extends Model {
   checkPassword(loginPw) {
@@ -40,29 +40,32 @@ User.init(
     hooks: {
       beforeCreate: async (newUserData) => {
         if (newUserData.password < 4 || newUserData.password > 20) {
-          throw new Error('\x1b[41mPassword must be between 4 and 20 characters\x1b[0m');
+          throw new Error(
+            "\x1b[41mPassword must be between 4 and 20 characters\x1b[0m"
+          );
         }
 
         newUserData.email = await newUserData.email.toLowerCase();
 
-
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
 
         return newUserData;
-
       },
       beforeUpdate: async (updatedUserData) => {
-        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        updatedUserData.password = await bcrypt.hash(
+          updatedUserData.password,
+          10
+        );
         updatedUserData.email = await updatedUserData.email.toLowerCase();
 
         return updatedUserData;
-      }
+      },
     },
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: "user",
   }
 );
 

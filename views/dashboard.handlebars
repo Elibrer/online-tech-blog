@@ -1,78 +1,130 @@
 <head>
-  <link rel="stylesheet" href="/css/dashboard.css"> 
+  <link rel="stylesheet" href="/css/dashboard.css" />
 </head>
 
-
 <body>
-    <span style="display:none;" id="logged-in">{{logged_in}}</span>
-    <div class="d-flex flex-column justify-content-center ">
-        <header class="w-100 text-center">
-            <h2 class="justify-content-center">Create new post:</h2>
-        </header>
-        <div id="add-comment-container" class="d-flex flex-column align-items-center px-2">
-              <input id="create-post-title" type="text" required="true" class="form-control w-75 mb-2" placeholder="Post title"> 
-              <textarea id="create-post-text" required="true" class="form-control w-75" placeholder="Post Content" rows="3"></textarea>
-              <input id="post-submit" type="submit" name="Submit" value="Submit" class="comment-submit justify-content-center mb-2 pageButtons" />
-        </div>
+  <span style="display:none;" id="logged-in">{{logged_in}}</span>
+  <div class="d-flex flex-column justify-content-center">
+    <header class="w-100 text-center">
+      <h2 class="justify-content-center">Create new post:</h2>
+    </header>
+    <div
+      id="add-comment-container"
+      class="d-flex flex-column align-items-center px-2"
+    >
+      <input
+        id="create-post-title"
+        type="text"
+        required="true"
+        class="form-control w-75 mb-2"
+        placeholder="Post title"
+      />
+      <textarea
+        id="create-post-text"
+        required="true"
+        class="form-control w-75"
+        placeholder="Post Content"
+        rows="3"
+      ></textarea>
+      <input
+        id="post-submit"
+        type="submit"
+        name="Submit"
+        value="Submit"
+        class="comment-submit justify-content-center mb-2 pageButtons"
+      />
     </div>
+  </div>
 
-
-
-    <div class="w-100 post-form container-fluid d-flex flex-column justify-content-center mb-2" id="recent-post-container">
-        <header class="w-100 text-center">
-        <h2 class="justify-content-center mb-0"><span data-id="{{user.id}}" id="current-user-name">{{user.username}}</span>'s recent posts:</h2>
-        <p class="mb-2" style="font-style: italic;">Press any existing blog to edit/delete...</p>
-        </header>
-        <ul class="list-group w-100">
-        {{#if userPosts}}
+  <div
+    class="w-100 post-form container-fluid d-flex flex-column justify-content-center mb-2"
+    id="recent-post-container"
+  >
+    <header class="w-100 text-center">
+      <h2 class="justify-content-center mb-0"><span
+          data-id="{{user.id}}"
+          id="current-user-name"
+        >{{user.username}}</span>'s recent posts:</h2>
+      <p class="mb-2" style="font-style: italic;">Press any existing blog to
+        edit/delete...</p>
+    </header>
+    <ul class="list-group w-100">
+      {{#if userPosts}}
         {{#each userPosts as |post|}}
-        <li data-id="{{post.id}}" class="blog-post list-group-item post-list-item rounded">
+          <li
+            data-id="{{post.id}}"
+            class="blog-post list-group-item post-list-item rounded"
+          >
             <div id="" class="post-box">
-                <h3 class="mb-0 text-break post-name">{{post.post_name}}</h3>
-                <div class="d-flex align-items-center justify-content-end ">
-                    <p style="color: var(--white);" class="mx-3 post-seperator">|</p>
-                    <p class="font-weight-bold">{{post.post_date}}</p>
-                </div>
-            </div>
-        </li>
-
-        <div id="post-list" class="m-2"></div>
-        {{/each}}
-        {{/if}}
-        </ul> 
-        <ul  class="list-group post-id ">
-
-        </ul>
-    </div>
-    <div id="home-modal" class="modal">
-      <div class="dash-modal modal-content">
-        <span id="dashboardModal-close" class="d-flex justify-content-end dash-modal-close">&times;</span>
-        <ul class="list-group">
-          <li class="list-group-modal list-group-item rounded current-post">        
-            <div class="blog-post post-header">
-              <input class="text-break" type="text" id="post-title">
-              <div class="user-container">
-                <h5 id="post-author"></h5>
-                <p style="color: var(--white);" class="mx-3">|</p>
-                <p  id="post-date" ></p>
-              </div>               
-            </div>
-            <div id="post-content" contenteditable="true" class="w-100 border-top p-2 m-0 h-100"></div>
-          </li>
-          <li class="rounded">
-            <div class="d-flex flex-row align-items-center justify-content-between p-2">
-              <h6 class="m-0 font-weight-bold">Comments</h6>
-              <div class="d-flex flex-row w-50 editDel">
-                <input id="edit-post" type="submit" name="Edit Post" value="Edit Post" class="comment-submit justify-content-end m-0 pageButtons" />
-                <input id="delete-post" type="submit" name="Delete Post" value="Delete Post" class="comment-submit justify-content-end m-0 pageButtons" />
+              <h3 class="mb-0 text-break post-name">{{post.post_name}}</h3>
+              <div class="d-flex align-items-center justify-content-end">
+                <p
+                  style="color: var(--white);"
+                  class="mx-3 post-seperator"
+                >|</p>
+                <p class="font-weight-bold">{{post.post_date}}</p>
               </div>
             </div>
-            <ul  class="text-break list-group comment-id ">
-
-            </ul>
           </li>
-        </ul> 
-      </div>
+
+          <div id="post-list" class="m-2"></div>
+        {{/each}}
+      {{/if}}
+    </ul>
+    <ul class="list-group post-id">
+
+    </ul>
+  </div>
+  <div id="home-modal" class="modal">
+    <div class="dash-modal modal-content">
+      <span
+        id="dashboardModal-close"
+        class="d-flex justify-content-end dash-modal-close"
+      >&times;</span>
+      <ul class="list-group">
+        <li class="list-group-modal list-group-item rounded current-post">
+          <div class="blog-post post-header">
+            <input class="text-break" type="text" id="post-title" />
+            <div class="user-container">
+              <h5 id="post-author"></h5>
+              <p style="color: var(--white);" class="mx-3">|</p>
+              <p id="post-date"></p>
+            </div>
+          </div>
+          <div
+            id="post-content"
+            contenteditable="true"
+            class="w-100 border-top p-2 m-0 h-100"
+          ></div>
+        </li>
+        <li class="rounded">
+          <div
+            class="d-flex flex-row align-items-center justify-content-between p-2"
+          >
+            <h6 class="m-0 font-weight-bold">Comments</h6>
+            <div class="d-flex flex-row w-50 editDel">
+              <input
+                id="edit-post"
+                type="submit"
+                name="Edit Post"
+                value="Edit Post"
+                class="comment-submit justify-content-end m-0 pageButtons"
+              />
+              <input
+                id="delete-post"
+                type="submit"
+                name="Delete Post"
+                value="Delete Post"
+                class="comment-submit justify-content-end m-0 pageButtons"
+              />
+            </div>
+          </div>
+          <ul class="text-break list-group comment-id">
+
+          </ul>
+        </li>
+      </ul>
     </div>
-    <script src="/js/dashboard.js"></script>
+  </div>
+  <script src="/js/dashboard.js"></script>
 </body>
