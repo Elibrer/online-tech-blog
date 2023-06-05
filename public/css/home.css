@@ -102,7 +102,7 @@ input:focus::placeholder, input:hover::placeholder {
   color: var(--dark);
   display: block;
   margin: 1rem auto;
-  width: calc(25% - 2rem);
+  width: calc(75% - 2rem);
   padding: .25rem;
   transition: 250ms background-color ease-in;
   &:hover, &:focus {
@@ -161,11 +161,36 @@ input:focus::placeholder, input:hover::placeholder {
   }
 }
 
+.post-name {
+  text-align: left;
+}
+
 .post-box {
+  width: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+.comment-box {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pageButtons {
+  width: 5rem;
+}
+
+#add-comment-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -173,7 +198,22 @@ input:focus::placeholder, input:hover::placeholder {
     width: 100%;
     max-width: 100%;
   }
+  .pageButtons {
+    width: 25%;
+  }
   .post-box {
     flex-direction: column;
   }
+  #add-comment-container {
+    flex-direction: column;
+    width: 100%;
+  }
+  .comment-box {
+    flex-direction: column;
+    width: 100%;
+  }
+  .post-name {
+    text-align: center;
+  }
+  
 }

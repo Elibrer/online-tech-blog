@@ -28,7 +28,7 @@
         {{#each userPosts as |post|}}
         <li data-id="{{post.id}}" class="blog-post list-group-item post-list-item rounded">
             <div id="" class="post-box">
-                <h3 class="mb-0 text-break">{{post.post_name}}</h3>
+                <h3 class="mb-0 text-break post-name">{{post.post_name}}</h3>
                 <div class="d-flex align-items-center justify-content-end ">
                     <p style="color: var(--white);" class="mx-3 post-seperator">|</p>
                     <p class="font-weight-bold">{{post.post_date}}</p>
@@ -49,8 +49,8 @@
         <span id="dashboardModal-close" class="d-flex justify-content-end dash-modal-close">&times;</span>
         <ul class="list-group">
           <li class="list-group-modal list-group-item rounded current-post">        
-            <div class="d-flex justify-content-between blog-post p-2">
-              <input class="text-break w-100" style="font-size: 2rem;" type="text" id="post-title">
+            <div class="blog-post post-header">
+              <input class="text-break" type="text" id="post-title">
               <div class="user-container">
                 <h5 id="post-author"></h5>
                 <p style="color: var(--white);" class="mx-3">|</p>

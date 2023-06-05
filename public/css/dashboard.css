@@ -201,11 +201,29 @@ input:focus::placeholder, input:hover::placeholder {
     left: -2px
 }
 
+.post-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+
+}
+
+.post-name {
+    text-align: left;
+  }
+
 .post-box {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+#post-title {
+    font-size: 2rem;
+    font-weight: bold;
+    width: 75%;
 }
 
 .pageButtons {
@@ -231,6 +249,19 @@ input:focus::placeholder, input:hover::placeholder {
         width: 100%;
     }
     .editDel {
+        justify-content: center;
+    }
+    .post-name {
+        text-align: center;
+    }
+    .post-header {
+        flex-direction: column;
+        justify-content: center;
+    }
+    #post-title {
+        width: 100%;
+    }
+    .user-container {
         justify-content: center;
     }
 }
