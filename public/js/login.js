@@ -46,6 +46,32 @@ const signupFormHandler = async (event) => {
     const newEmail = email.value.trim();
     const newPassword = password.value.trim();
 
+    if (newPassword.length < 8) {
+      alert('Password must be at least 8 characters long');
+      signupFormHandler()
+      return;
+    }
+    if (newEmail.indexOf('@') === -1 || newEmail.indexOf('.com') === -1) {
+      alert('Please enter a valid email address');
+      signupFormHandler()
+      return;
+    }
+    if (newEmail == '' || newUsername == '' || newPassword == '') {
+      alert('Please fill out all fields');
+      signupFormHandler()
+      return;
+    }
+
+    const allEmails = await fetch('/api/users');
+    const allEmailsJson = await allEmails.json();
+    const allEmailsArray = allEmailsJson.map(user => user.email);
+    
+    if (allEmailsArray.includes(newEmail)) {
+      alert('Email already in use');
+      signupFormHandler()
+      return;
+    }
+
     if (username && email && password) {
       const newUser = {
         username: newUsername,

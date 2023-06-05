@@ -34,8 +34,10 @@ router.get('/:id', async (req, res) => {
 
 // Create a new user
 router.post('/', async (req, res) => {
+  console.log(req.body);
+
   try {
-    const newUser = await User.create({
+      const newUser = await User.create({
       username: req.body.username,
       email: req.body.email,
       password: req.body.password,
@@ -43,6 +45,7 @@ router.post('/', async (req, res) => {
     {
       individualHooks: true
     });
+    console.log("Success")
     res.status(201).json(newUser);
   } catch (err) {
     res.status(500).json(err);
