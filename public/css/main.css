@@ -74,7 +74,7 @@ footer {
   font-size: 1em;
   letter-spacing: 2px;
   transition: 0.2s ease;
-  min-width: 10em;
+  min-width: 216.7px;
   font-weight: bold;
   margin: 5px 0px;
   &.blue {
@@ -110,6 +110,12 @@ footer {
   text-align: center;
 }
 
+.btn-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 #footer-box {
   display: flex;
   flex-direction: column;
@@ -130,4 +136,13 @@ footer {
   }
   
 }
+
+@media screen and (max-width: 450px) {
+  .btn-box {
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+}
+
   
