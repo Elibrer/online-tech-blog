@@ -16,7 +16,7 @@ body, html {
 body {
   font-family:"Nunito Sans";
   font-weight: 100;
-  overflow: hidden;
+  overflow: auto;
 }
 input {
   ::-webkit-input-placeholder {
