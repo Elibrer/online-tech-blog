@@ -43,6 +43,9 @@ User.init(
           throw new Error('\x1b[41mPassword must be between 4 and 20 characters\x1b[0m');
         }
 
+        newUserData.email = await newUserData.email.toLowerCase();
+
+
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
 
         return newUserData;
@@ -50,6 +53,7 @@ User.init(
       },
       beforeUpdate: async (updatedUserData) => {
         updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        updatedUserData.email = await updatedUserData.email.toLowerCase();
 
         return updatedUserData;
       }
