@@ -5,7 +5,7 @@ const { User, Post } = require('../../models');
 router.get('/', async (req, res) => {
   try {
     const users = await User.findAll({
-      // attributes: { exclude: ['password'] },
+      attributes: { exclude: ['password'] },
     });
     res.status(200).json(users);
   } catch (err) {
@@ -18,6 +18,8 @@ router.get('/:id', async (req, res) => {
   try {
     if ( req.session.logged_in === true) {
     const user = await User.findByPk(req.params.id, {
+      attributes: { exclude: ['password'] },
+
       include: [{ model: Post, attributes: ['post_name'] }],
     });
 
