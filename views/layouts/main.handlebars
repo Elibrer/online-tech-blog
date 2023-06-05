@@ -14,12 +14,12 @@
 <body>
   <header class="p-2 border-bottom border-dark" style="border: rgb(31, 48, 85)">
     <div class="d-flex flex-column ">
-      <div class="d-flex flex-row justify-content-between">
+      <div id="header-box"class="">
           <a class="btn blue"style="visibility:hidden;"></a>
           <h1 class="d-flex flex-row justify-content-center" style="font-size: 4em; color: rgb(31, 48, 85);">
             Zweck Tech Blog
           </h1>
-          <div class="d-flex align-items-center">
+          <div id="log-btn" class="">
             {{#if logged_in}}
               <button class="btn blue align-middle" id="logout">Logout</button>
               {{else}}
@@ -41,7 +41,7 @@
     {{{ body }}}
   </main>
 
-   <footer class="text-center">
+   <footer id="footer-box" class="text-center">
     <p>
       &copy; 2023 ZweckTechBlog
     </p>

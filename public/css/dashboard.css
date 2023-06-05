@@ -200,3 +200,37 @@ input:focus::placeholder, input:hover::placeholder {
     top: -7px;
     left: -2px
 }
+
+.post-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pageButtons {
+    width: 25%;
+}
+
+.editDel {
+    justify-content: flex-end;
+}
+  
+@media screen and (max-width: 768px) {
+    .post-form {
+      width: 100%;
+      max-width: 100%;
+    }
+    .post-box {
+      flex-direction: column;
+    }
+    .post-seperator {
+        display: none;
+    }
+    .pageButtons {
+        width: 100%;
+    }
+    .editDel {
+        justify-content: center;
+    }
+}

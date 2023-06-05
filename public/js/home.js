@@ -142,7 +142,7 @@ const postCommentHandler = async (currentPost) => {
     commentContainer.setAttribute('class', 'list-group-modal list-group-item comment-group rounded');
 
     const userContainer= document.createElement('div');
-    userContainer.setAttribute('class', 'user-container border-bottom blog-post justify-content-between p-2');
+    userContainer.setAttribute('class', 'user-container border-bottom blog-post justify-content-between p-2 post-box');
 
     const commentAuthor = document.createElement('h5');
     const commentDate = document.createElement('p');

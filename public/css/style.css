@@ -101,3 +101,36 @@ footer {
     }
   }
 }
+
+#header-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-between;
+  text-align: center;
+}
+
+#footer-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-between;
+  text-align: center;
+}
+
+#log-btn {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  #header-box {
+    flex-direction: column;
+    justify-content: center;
+  }
+  #footer-box {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+  

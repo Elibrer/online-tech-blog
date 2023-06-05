@@ -53,6 +53,9 @@ h4 {
   font-weight: bold;
 }
 
+#add-comment:hover {
+  cursor: pointer;
+}
 
 ::placeholder { 
     color: var(--dark);
@@ -155,5 +158,22 @@ input:focus::placeholder, input:hover::placeholder {
     background-color: var(--dark);
     color: var(--white);
     transition: 250ms background-color ease-in;
+  }
+}
+
+.post-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .post-form {
+    width: 100%;
+    max-width: 100%;
+  }
+  .post-box {
+    flex-direction: column;
   }
 }
