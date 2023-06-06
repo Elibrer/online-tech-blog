@@ -29,7 +29,7 @@
 - [Installation](#installation)
 - [Features](#features)
 - [Documentation](#documentation)
-- [Application Preview](#full-preview)
+- [Application Preview](#application-preview)
 - [License](#license)
 - [Tests](#tests)
 - [Questions](#questions)
@@ -90,12 +90,12 @@ No documentation provided.
 ---
 
 ## Application Preview
-### `Preview of all categories`
-![view categories](./public/assets/images/get_categories.png)
-### `Preview of a product being updated`
-![update product](./public/assets/images/update_products.png)
-### `Preview of a tag being created`
-![create tag](./public/assets/images/create_tag.png)
+### `Login Page`
+![login page](./public/images/zweck-tech-login.png)
+### `Home Page`
+![home page](./public/images/zweck-tech_home.png)
+### `Dashboard`
+![dashboard](./public/images/zweck-tech-dash.png)
 
 ---
 
@@ -105,17 +105,8 @@ No documentation provided.
 ---
 
 ## Tests
-To test, create the database using 
-```
-mysql -u root -p
-```
-in which the user must provide their `mysql` password, then typing and entering: 
-```
-source ./db/schema.sql
-```
-as per usual. Then seed the database with included `./seeds/index.js` file by typing and entering:
-```
-The user may now test this application using preset data, in which every table is populated. If using insomnia or running any of the terminal commands returns an error then please do not hesistate to contact me at the email address listed below, or by messaging on my GitHub profile.
+To test, simply run the application by using the instructions provided above. If there are any errors, or the application did not work in the intended way, please try to locate and log the lines of code that bring up the error, and forward all issues to the email below.
+
 ---
 
 ## Questions
