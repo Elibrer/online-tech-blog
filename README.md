@@ -3,6 +3,9 @@
 
 *This web page can be used to create new blog posts to share with other users, while giving the user the ablity to comment on other posts*
 
+![Javascript](https://img.shields.io/badge/JavaScript-59.4%25-yellow)
+![CSS](https://img.shields.io/badge/CSS-22.1%25-purple)
+![Handlebars](https://img.shields.io/badge/Handlebars-18.5%25-orange)
 ---
 
 ## Languages used

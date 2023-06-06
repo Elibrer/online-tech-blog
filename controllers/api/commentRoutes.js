@@ -63,9 +63,3 @@ router.delete("/:id", async (req, res) => {
 });
 
 module.exports = router;
-
-
-
-// Shields.io badge for handlebars.js with logo including 'for-the-badge' style
-
-// https://img.shields.io/badge/Handlebars.js-FF7E5F?style=for-the-badge&logo=handlebars.js&logoColor=white
